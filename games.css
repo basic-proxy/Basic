@@ -115,7 +115,7 @@
 }
 
 .game-tag-group-wrapper {
-    margin_right:50px;
+    margin-right:50px;
     display: flex;
     overflow-x: hidden;
     scroll-behavior: smooth;
