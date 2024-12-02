@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic - Settings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="back-button-container">
+        <a href="index.html">
+            <button class="rgb-button">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                    <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/>
+                </svg>
+            </button>
+        </a>
+    </div>
+
+    <h1>Settings</h1>
+    <h3>Change Cloak Favicon</h3>
+    <div class="button-container">
+        <button onclick="setCloak('Blooket', 'blooket.ico')" class="rgb-button" type="button">
+            <img id="icon-blooket" src="images/favicons/blooket.ico" alt="Blooket" width="24px" height="24px">
+        </button>
+        <button onclick="setCloak('Desmos', 'desmos.ico')" class="rgb-button" type="button">
+            <img id="icon-desmos" src="images/favicons/desmos.ico" alt="Desmos" width="24px" height="24px">
+        </button>
+        <button onclick="setCloak('GoogleDrive', 'drive.ico')" class="rgb-button" type="button">
+            <img id="icon-drive" src="images/favicons/drive.ico" alt="Google Drive" width="24px" height="24px">
+        </button>
+        <button onclick="setCloak('Google', 'google.ico')" class="rgb-button" type="button">
+            <img id="icon-google" src="images/favicons/google.ico" alt="Google" width="24px" height="24px">
+        </button>
+        <button onclick="setCloak('Outlook', 'outlook.ico')" class="rgb-button" type="button">
+            <img id="icon-outlook" src="images/favicons/outlook.ico" alt="Outlook" width="24px" height="24px">
+        </button>
+    </div>
+
+    <script>
+        function setCloak(name, iconPath) {
+            localStorage.setItem('cloak', name);
+
+            const buttonImages = document.querySelectorAll('.button-container button img');
+            buttonImages.forEach((img) => {
+                if (img.src.includes(iconPath)) {
+                    const originalSrc = img.src;              
+                    setTimeout(() => {
+                        img.src = originalSrc;
+                    }, 2000);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

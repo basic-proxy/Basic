@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic - Apps</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="baremux/bare.js"></script>
+    <script src="bareTransport.js"></script>
+    <script src="uv/uv.bundle.js" defer></script>
+    <script src="uv/uv.config.js" defer></script>
+    <script src="register-sw.js" defer></script>
+    <script src="search.js" defer></script>
+    <script src="index.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const buttons = document.querySelectorAll("#app-button");
+            const form = document.getElementById("uv-form");
+            const addressInput = document.getElementById("uv-address");
+
+            buttons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    const predefinedLink = button.getAttribute("data-link");
+                    addressInput.value = predefinedLink;
+
+                    form.dispatchEvent(
+                        new CustomEvent("submit", {
+                            bubbles: true,
+                            cancelable: true,
+                            detail: { source: "app-button" },
+                        })
+                    );
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="back-button-container">
+        <a href="index.html">
+            <button class="rgb-button">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                    <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/>
+                </svg>
+            </button>
+        </a>
+    </div>
+
+    <h1>Apps</h1>
+
+    <form id="uv-form" class="flex-center" style="display: none;">
+        <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />
+        <input id="uv-address" type="text" placeholder="Enter a search query..." />
+    </form>
+    
+    <div class="button-container">
+        <button style="height:100px" id="app-button" class="rgb-button" type="button" data-link="https://discord.com/login">
+            <img style="padding-top:10px" alt="discord" src="images/apps/discord.png" alt="Discord" width="24px" height="24px">
+            <p>Discord</p>
+        </button>
+        <button style="height:100px" id="#app-button" class="rgb-button" type="button" data-link="https://chat.openai.com">
+            <img style="padding-top:10px" src="images/apps/gpt.png" alt="ChatGPT" width="24px" height="24px">
+            <p>ChatGPT (Broken)</p>
+        </button>
+        <button style="height:100px" id="app-button" class="rgb-button" type="button" data-link="https://www.coolmathgames.com">
+            <img style="padding-top:10px" src="images/apps/coolmathgames.png" alt="Cool Math Games" width="24px" height="24px">
+            <p>Cool Math Games</p>
+        </button>
+        <button style="height:100px" id="app-button" class="rgb-button" type="button" data-link="https://www.twitch.tv">
+            <img style="padding-top:10px" src="images/apps/twitch.png" alt="Twitch" width="24px" height="24px">
+            <p>Twitch</p>
+        </button>
+        <button style="height:100px" id="app-button" class="rgb-button" type="button" data-link="https://www.nvidia.com/en-us/geforce-now/">
+            <img style="padding-top:10px" src="images/apps/gforcenow.png" alt="GForceNow" width="24px" height="24px">
+            <p>GForceNow</p>
+        </button>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap");
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: rgb(19, 19, 19);
+}
+
+h1 {
+    text-align: center;
+    color: rgb(191, 191, 191);
+    font-size: 80px;
+    line-height: 1.2;
+    font-weight: 300
+}
+
+h3 {
+    text-align: center;
+    color: rgb(191, 191, 191);
+    font-size: 24px;
+    line-height: 1.4;
+    font-weight: 200
+}
+
+h4 {
+    text-align: center;
+    color: rgb(191, 191, 191);
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 200
+}
+
+h6 {
+    text-align: center;
+    color: rgb(191, 191, 191);
+    font-size: 10px;
+    line-height: 1.4;
+    font-weight: 300
+}
+
+footer{
+    position:absolute;
+    bottom:0px;
+    text-align: center;
+    color: rgb(191, 191, 191);
+    font-size: 10px;
+    line-height: 1.4;
+    font-weight: 300
+}
+
+.rgb-button {
+    width: 100px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.rgb-button:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.rgb-button:active {
+    color: #000;
+    transition: color 0.2s ease-in-out;
+}
+
+.rgb-button:active:after {
+    background: transparent;
+    transition: background 0.2s ease-in-out;
+}
+
+.rgb-button:hover:before {
+    opacity: 1;
+}
+
+.rgb-button:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.back-button-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    }
+
+.back-button-container .rgb-button {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}

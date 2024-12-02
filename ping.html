@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic - Ping</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: rgb(191, 191, 191);
+            font-size: 80px;
+            line-height: 1.2;
+            font-weight: 300
+        }
+
+        #network-info p {
+            margin: 10px 0;
+            color:white
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+        .back-button-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            }
+
+        .back-button-container .rgb-button {
+            width: 60px;
+            height: 60px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-button-container">
+        <a href="index.html">
+            <button class="rgb-button">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                    <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/>
+                </svg>
+            </button>
+        </a>
+    </div>
+    <h1>Network Information</h1>
+    <div id="network-info">
+        <p>Ping to server: <span id="server-ping">Calculating...</span></p>
+        <p>Ping to Google: <span id="google-ping">Calculating...</span></p>
+        <p>Network strength: <span id="network-strength">Fetching...</span></p>
+        <p>SSID: <span id="ssid">Fetching...</span></p>
+    </div>
+    <script>
+        async function measurePing(url) {
+            const startTime = performance.now();
+            try {
+                await fetch(url, { method: 'HEAD', cache: 'no-store' });
+                return Math.round(performance.now() - startTime);
+            } catch {
+                return null;
+            }
+        }
+
+        function updatePingColor(element, ping) {
+            if (ping > 30) {
+                element.style.color = 'red';
+            } else if (ping > 15) {
+                element.style.color = 'orange';
+            } else {
+                element.style.color = 'green';
+            }
+        }
+
+        async function displayPing() {
+            const serverPing = await measurePing(window.location.origin);
+            const googlePing = await measurePing('https://google.com');
+
+            const serverPingElement = document.getElementById('server-ping');
+            const googlePingElement = document.getElementById('google-ping');
+
+            serverPingElement.textContent = serverPing !== null ? `${serverPing} ms` : 'Error';
+            googlePingElement.textContent = googlePing !== null ? `${googlePing} ms` : 'Error';
+
+            if (serverPing !== null) updatePingColor(serverPingElement, serverPing);
+            if (googlePing !== null) updatePingColor(googlePingElement, googlePing);
+        }
+
+        function displayNetworkInfo() {
+            const strengthElement = document.getElementById('network-strength');
+            const ssidElement = document.getElementById('ssid');
+
+            if (navigator.connection) {
+                const { effectiveType, downlink, rtt } = navigator.connection;
+                strengthElement.textContent = `Type: ${effectiveType}, Downlink: ${downlink} Mbps, RTT: ${rtt} ms`;
+            } else {
+                strengthElement.textContent = 'Network info not supported on this browser.';
+            }
+
+            navigator.permissions.query({ name: 'wifi' }).then(result => {
+                if (result.state === 'granted') {
+                    ssidElement.textContent = 'Not supported in this browser.';
+                } else {
+                    ssidElement.textContent = 'Permission not granted.';
+                }
+            }).catch(() => {
+                ssidElement.textContent = 'Unable to fetch :(';
+            });
+        }
+
+        function startUpdating() {
+            displayNetworkInfo();
+            setInterval(() => {
+                displayPing();
+                displayNetworkInfo();
+            }, 1000);
+        }
+
+        startUpdating();
+    </script>
+</body>
+</html>
