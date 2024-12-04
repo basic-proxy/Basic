@@ -1,6 +1,5 @@
-
-
 .game-card {
+    justify-content: center;
     position: relative;
     display: inline-block;
     text-decoration: none;
@@ -8,6 +7,7 @@
     border-radius: 10px;
     padding: 7px;
     z-index: 1;
+    text-align: center;
 }
 
 .game-card img {
@@ -115,12 +115,14 @@
 }
 
 .game-tag-group-wrapper {
-    margin-right:50px;
+    margin:auto;
     display: flex;
     overflow-x: hidden;
     scroll-behavior: smooth;
     width: 100vw;
     white-space: nowrap;
+    text-align: center;
+    justify-content: center;
 }
 
 .game-tag-group {
@@ -131,7 +133,7 @@
 }
 
 .game-tag {
-
+    justify-content: center;
     background-color: #3b4252;
     border: none;
     height: 40px;
@@ -174,6 +176,26 @@
     height: 24px;
 }
 
+.game-container {
 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
 
+}
+.game-card img {
+    width: 215px;
 
+    height: 120px;
+    border-radius: 10px;
+}
+/* Styling for the info button on the game image */
+.info-button {
+    position: absolute;
+    top: 5px;
+    left:185px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
