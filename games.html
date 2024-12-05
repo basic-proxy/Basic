@@ -39,31 +39,33 @@
             </button>
         </a>
     </div>
-    <!-- Bro wtf this is your problem now lamo -->
     <h1>Games</h1>
     <h6>Page rendered in <span id="renderTime"></span></h6>
+
 <div class="game-tag-group-wrapper">
     <div class="game-tag-group">
-        <button style="width:85px; height:35px" class="rgb-button">All</button>
-        <button style="width:85px; height:35px" class="rgb-button">Multiplayer</button>
-        <button style="width:85px; height:35px" class="rgb-button">Action</button>
-        <button style="width:85px; height:35px" class="rgb-button">Adventure</button>
-        <button style="width:85px; height:35px" class="rgb-button">Sports</button>
-        <button style="width:85px; height:35px" class="rgb-button">Driving</button>
-        <button style="width:85px; height:35px" class="rgb-button">Clicker</button>
-        <button style="width:85px; height:35px" class="rgb-button">Escape</button>
-        <button style="width:85px; height:35px" class="rgb-button">Horror</button>
-        <button style="width:85px; height:35px" class="rgb-button">Puzzle</button>
-        <button style="width:85px; height:35px" class="rgb-button">Shooting</button>
-        <button style="width:85px; height:35px" class="rgb-button">Strategy</button>
-        <button style="width:85px; height:35px" class="rgb-button">Stickman</button>
-        <button style="width:85px; height:35px" class="rgb-button">Simulation</button>
-        <button style="width:85px; height:35px" class="rgb-button">Platformer</button>
-        <button style="width:85px; height:35px" class="rgb-button">Cards</button>
-        <button style="width:85px; height:35px" class="rgb-button">RPG</button>
-        <button style="width:85px; height:35px" class="rgb-button">Racing</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="All">All</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Multiplayer">Multiplayer</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Action">Action</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Adventure">Adventure</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Sports">Sports</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Driving">Driving</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Clicker">Clicker</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Escape">Escape</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Horror">Horror</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Puzzle">Puzzle</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Shooting">Shooting</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Strategy">Strategy</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Stickman">Stickman</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Simulation">Simulation</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Platformer">Platformer</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Cards">Cards</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="RPG">RPG</button>
+        <button style="width:85px; height:35px" class="rgb-button" data-tag="Racing">Racing</button>
     </div>
 </div>
+
+<h2><span id="gameType">All</span></h2>
 
 <button class="scroll-arrow right" onclick="scrollTags('right')">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -71,9 +73,6 @@
     </svg>
 </button>
 <div class="game-container" style="margin-left:250px;">
-
-
-
 
 </div>
 <div id="gameModal" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -108,7 +107,6 @@
     </div>
   </div>
 </div>
-
 
 <script>
     // Functionality for the info button
@@ -478,17 +476,16 @@ const games = [
     },
     // Add more games here
 ];
-
-
-
-        games.forEach(game => {
+        const buttons = document.querySelectorAll('.rgb-button');
+        function renderGames(filteredGames) {
+            gameContainer.innerHTML = '';
+            filteredGames.forEach((game, index) => {
             const card = document.createElement('a');
             card.className = 'game-card';
             card.href = game.gameLink;
             card.innerHTML = `
                 <img src="${game.imgSrc}" alt="${game.name}">
-                <button class="info-button" onclick="showModal()', '${game.description}')">
-
+                <button class="info-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info">
                         <circle cx="12" cy="12" r="10"/>
                         <path d="M12 16v-4"/>
@@ -496,7 +493,6 @@ const games = [
                     </svg>
                 </button>
                 <div class="game-title">${game.name}</div>
-
             `;
             card.querySelector('.info-button').addEventListener('click', (event) => {
                 event.stopPropagation();
@@ -505,11 +501,28 @@ const games = [
             });
 
             gameContainer.appendChild(card);
+
+            setTimeout(() => {
+                card.classList.add('show');
+            }, index * 50);
         });
+}
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const selectedTag = button.getAttribute('data-tag');
+                document.getElementById('gameType').textContent = `${selectedTag}`;
+                let filteredGames;
+                if (selectedTag === 'All') {
+                    filteredGames = games;
+                } else {
+                    filteredGames = games.filter(game => game.tags.split(', ').includes(selectedTag));
+                }
+                renderGames(filteredGames);
+            });
+        });
+        renderGames(games);
     });
-
-
-
 </script>
 </body>
 </html>
