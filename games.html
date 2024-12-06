@@ -511,7 +511,6 @@ const games = [
         });
     }
 
-    // Tag-based filtering
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             const selectedTag = button.getAttribute('data-tag');
@@ -526,14 +525,12 @@ const games = [
         });
     });
 
-    // Search functionality
     gameSearch.addEventListener('input', () => {
         const query = gameSearch.value.toLowerCase();
         const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
         renderGames(filteredGames);
     });
 
-    // Render all games on initial load
     renderGames(games);
 });
 </script>
