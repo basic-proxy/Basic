@@ -41,8 +41,10 @@
     </div>
     <h1>Games</h1>
     <h6>Page rendered in <span id="renderTime"></span></h6>
-
-<div class="game-tag-group-wrapper">
+    <div class="game-search-form-center-thing-ahhhhhhhhhhh">
+        <input type="text" id="gameSearch" placeholder="Search for a game...">
+    </div>
+    <div class="game-tag-group-wrapper">
     <div class="game-tag-group">
         <button style="width:85px; height:35px" class="rgb-button" data-tag="All">All</button>
         <button style="width:85px; height:35px" class="rgb-button" data-tag="Multiplayer">Multiplayer</button>
@@ -476,10 +478,11 @@ const games = [
     },
     // Add more games here
 ];
-        const buttons = document.querySelectorAll('.rgb-button');
-        function renderGames(filteredGames) {
-            gameContainer.innerHTML = '';
-            filteredGames.forEach((game, index) => {
+    const buttons = document.querySelectorAll('.rgb-button');
+
+    function renderGames(filteredGames) {
+        gameContainer.innerHTML = '';
+        filteredGames.forEach((game, index) => {
             const card = document.createElement('a');
             card.className = 'game-card';
             card.href = game.gameLink;
@@ -506,23 +509,33 @@ const games = [
                 card.classList.add('show');
             }, index * 50);
         });
-}
+    }
 
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                const selectedTag = button.getAttribute('data-tag');
-                document.getElementById('gameType').textContent = `${selectedTag}`;
-                let filteredGames;
-                if (selectedTag === 'All') {
-                    filteredGames = games;
-                } else {
-                    filteredGames = games.filter(game => game.tags.split(', ').includes(selectedTag));
-                }
-                renderGames(filteredGames);
-            });
+    // Tag-based filtering
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const selectedTag = button.getAttribute('data-tag');
+            document.getElementById('gameType').textContent = `${selectedTag}`;
+            let filteredGames;
+            if (selectedTag === 'All') {
+                filteredGames = games;
+            } else {
+                filteredGames = games.filter(game => game.tags.split(', ').includes(selectedTag));
+            }
+            renderGames(filteredGames);
         });
-        renderGames(games);
     });
+
+    // Search functionality
+    gameSearch.addEventListener('input', () => {
+        const query = gameSearch.value.toLowerCase();
+        const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
+        renderGames(filteredGames);
+    });
+
+    // Render all games on initial load
+    renderGames(games);
+});
 </script>
 </body>
 </html>
