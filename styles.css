@@ -386,6 +386,9 @@ footer{
     flex-wrap: wrap;
     justify-content: center;
     padding: 10px;
+    align-items: center;
+    margin: auto;
+    width: 50%;
 
 }
 .game-card img {
