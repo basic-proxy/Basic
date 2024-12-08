@@ -318,73 +318,14 @@ footer{
     overflow: hidden;
 }
 
-.game-tag-group-wrapper {
-    margin:auto;
-    display: flex;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    width: 100vw;
-    white-space: nowrap;
-    text-align: center;
-    justify-content: center;
-}
 
-.game-tag-group {
-
-    display: flex;
-    gap: 10px;
-    padding: 0 10px;
-}
-
-.game-tag {
-    justify-content: center;
-    background-color: #3b4252;
-    border: none;
-    height: 40px;
-    padding: 7px 15px;
-    border-radius: 7px;
-    font-size: 15px;
-    cursor: pointer;
-    color: #edeff3;
-}
-
-.game-tag:hover {
-    background-color: #434c5d;
-}
-
-.game-tag.active {
-    background-color: #edeff3;
-    color: #4c566a;
-}
-
-.scroll-arrow {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.scroll-arrow.left {
-    left: 0;
-}
-
-.scroll-arrow.right {
-    right: 0;
-}
-
-.scroll-arrow svg {
-    width: 24px;
-    height: 24px;
-}
 
 .game-container {
 
     display: flex;
     justify-content: center;
     padding: 10px;
+    flex-wrap: wrap;
     align-items: center;
     margin: auto;
     width: 50%;
