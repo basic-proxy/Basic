@@ -405,6 +405,8 @@ footer{
 }
 
 .game-search-form-center {
-    margin: auto;
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
