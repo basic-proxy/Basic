@@ -286,10 +286,17 @@ footer{
 }
 
 
+.game-tag-group-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .game-tag-group {
     display: flex;
-    gap: 10px; /* Space between buttons */
+    gap: 10px;
+    flex-wrap: wrap;
 }
+
 
 .game-tag {
     background-color: #3b4252; /* Light gray */
