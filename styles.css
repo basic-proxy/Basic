@@ -403,3 +403,8 @@ footer{
     border: none;
     cursor: pointer;
 }
+
+.game-search-form-center {
+    margin: auto;
+    width: 50%;
+}
