@@ -45,6 +45,11 @@ h6 {
     font-weight: 300
 }
 
+p {
+    text-align: center;
+    color: rgb(191, 191, 191);
+}
+
 footer{
     position:absolute;
     bottom:0px;
