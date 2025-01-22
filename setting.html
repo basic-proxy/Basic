@@ -40,16 +40,7 @@
     <script>
         function setCloak(name, iconPath) {
             localStorage.setItem('cloak', name);
-
-            const buttonImages = document.querySelectorAll('.button-container button img');
-            buttonImages.forEach((img) => {
-                if (img.src.includes(iconPath)) {
-                    const originalSrc = img.src;              
-                    setTimeout(() => {
-                        img.src = originalSrc;
-                    }, 2000);
-                }
-            });
+            console.log("Cloak Changed!")
         }
     </script>
 </body>

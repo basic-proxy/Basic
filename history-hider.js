@@ -1,7 +1,7 @@
 let inFrame;
 
 try {
-    inFrame = window !== top;
+    inFrame = window.self !== window.top;
 } catch (e) {
     inFrame = true;
 }
@@ -41,36 +41,36 @@ const cloakConfig = {
 };
 
 const cloak = localStorage.getItem('cloak');
-const { name, icon, redirectLocation } = cloakConfig[cloak] || defaultConfig;
+const config = cloakConfig[cloak] || defaultConfig;
 
 if (!inFrame && !navigator.userAgent.includes("Firefox")) {
-    const popup = open("about:blank", "_blank");
-    if (!popup || popup.closed) {
-        alert("Allow popups and reload to cloak this link.");
+    const popup = window.open("about:blank", "_blank");
+    if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+        alert("Please enable popups and reload to use the history cloaker.");
     } else {
-        const doc = popup.document;
-        const iframe = doc.createElement("iframe");
-        const link = doc.createElement("link");
+        popup.document.title = config.name;
 
-        doc.title = name;
+        const link = popup.document.createElement("link");
         link.rel = "icon";
-        link.href = icon;
+        link.href = config.icon;
+        popup.document.head.appendChild(link);
 
-        iframe.src = location.href;
+        const iframe = popup.document.createElement("iframe");
         Object.assign(iframe.style, {
             position: "fixed",
             top: 0,
-            bottom: 0,
             left: 0,
-            right: 0,
-            border: "none",
-            outline: "none",
             width: "100%",
-            height: "100%"
+            height: "100%",
+            border: "none",
+            outline: "none"
         });
+        iframe.src = window.location.href;
 
-        doc.head.appendChild(link);
-        doc.body.appendChild(iframe);
-        location.replace(redirectLocation);
+        popup.document.body.style.margin = "0";
+        popup.document.body.style.padding = "0";
+        popup.document.body.appendChild(iframe);
+
+        window.location.href = config.redirectLocation;
     }
 }
