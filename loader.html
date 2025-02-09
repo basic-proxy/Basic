@@ -5,21 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic - Game Loader</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const name = urlParams.get('name');
-            const link = urlParams.get('link');
-
-            if (name) {
-                document.getElementById('title').textContent = name;
-            }
-
-            if (link) {
-                document.getElementById('game-frame').src = link;
-            }
-        };
-    </script>
+    <script src="loader.js"></script>
 </head>
 <body>
     <div class="back-button-container">

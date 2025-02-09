@@ -37,6 +37,11 @@ const cloakConfig = {
         name: "Desmos | Graphing Calculator",
         icon: "images/favicons/desmos.ico",
         redirectLocation: "https://www.desmos.com/calculator"
+    },
+    "Canvas": {
+        name: "Dashboard",
+        icon: "images/favicons/canvas.ico",
+        redirectLocation: "chrome://newtab"
     }
 };
 
