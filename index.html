@@ -6,52 +6,19 @@
     <title>Basic</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="proxy.css">
-    <script type="text/javascript" src="history-hider.js"></script>
+    <script src="history-hider.js"></script>
     <script src="baremux/bare.js"></script>
     <script src="bareTransport.js"></script>
-    <script src="uv/uv.bundle.js" defer></script>
-    <script src="uv/uv.config.js" defer></script>
-    <script src="register-sw.js" defer></script>
-    <script src="search.js" defer></script>
-    <script src="index.js" defer></script>
-    <script>
-        const startTime = performance.now();
-        window.onload = function() {
-            const endTime = performance.now();
-            const renderTime = (endTime - startTime).toFixed(2);
-            document.getElementById('renderTime').textContent = `${renderTime} milliseconds.`;
-        };
-
-        async function measurePing(url) {
-        const start = performance.now();
-        try {
-          await fetch(url, { method: 'GET', cache: 'no-cache' });
-        } catch (error) {
-          console.error('Error pinging the site:', error);
-          return -1;
-        }
-        const end = performance.now();
-        return Math.round(end - start);
-      }
-
-      async function runPingTest() {
-        const url = 'https://api.sudptt06.org/';
-        const ping = await measurePing(url);
-
-        const pingDisplay = document.getElementById('ping');
-        if (ping >= 0) {
-          pingDisplay.textContent = ping;
-        } else {
-          pingDisplay.textContent = 'Error. Are you offline? Is the server blocked?';
-        }
-      }
-
-      window.addEventListener('load', runPingTest);
-    </script>
+    <script src="uv/uv.bundle.js"></script>
+    <script src="uv/uv.config.js"></script>
+    <script src="register-sw.js"></script>
+    <script src="search.js"></script>
+    <script src="index.js" defer></script>  
+    <script src="ping.js"></script>
 </head>
 <body>
     <h1>Basic</h1>
-    <h3>Super lightweight games & proxy site designed for speed.</h3>
+    <h3>Sleek games & proxy site designed for looks.</h3>
     <h6>Page rendered in <span id="renderTime"></span>👍</h6>
     <form id="uv-form" class="flex-center">
         <input
@@ -61,8 +28,8 @@
         />
         <input id="uv-address" type="text" placeholder="Enter a search query..." />
       </form>
-      <h6>Server Ping: <span id="ping"></span>ms</h6>
-      <h4>Chat Currently Broken! :(</h4>
+      <h6>Server Ping: <span id="ping"></span></h6>
+      <h4>Chat will come eventually trust</h4>
       <div class="desc left-margin">
         <p id="uv-error"></p>
       <pre id="uv-error-code"></pre>

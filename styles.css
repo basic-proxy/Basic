@@ -45,6 +45,11 @@ h6 {
     font-weight: 300
 }
 
+p {
+    text-align: center;
+    color: rgb(191, 191, 191);
+}
+
 footer{
     position:absolute;
     bottom:0px;
@@ -55,6 +60,16 @@ footer{
     font-weight: 300
 }
 
+span {
+    font-weight:bold
+}
+
+#network-info p {
+    margin: 10px 0;
+    color:white
+}
+
+/* Button code lmao */
 .rgb-button {
     width: 100px;
     height: 50px;
@@ -143,6 +158,7 @@ footer{
     border-radius: 10px;
 }
 
+/* Game page css ig */
 #gameSearch {
     background: none;
     font-family: inherit;
@@ -173,26 +189,6 @@ footer{
     align-items: center;
     min-height: 100vh;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .game-card {
     justify-content: center;
@@ -270,6 +266,7 @@ footer{
     opacity: 1;
 }
 
+/* The description is stupid so I got rid of it */
 .info-button svg {
     visibility: hidden;
 }
@@ -325,8 +322,6 @@ footer{
     overflow: hidden;
 }
 
-
-
 .game-container {
 
     display: flex;
@@ -344,7 +339,7 @@ footer{
     height: 120px;
     border-radius: 10px;
 }
-/* Styling for the info button on the game image */
+/* The blue info thing that I got rid of */
 .info-button {
     position: absolute;
     top: 5px;

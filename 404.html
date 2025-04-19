@@ -1,39 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <title>Basic - Error/404</title>
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: dark)"
-      content="#434c5e"
-    />
-    <meta name="googlebot" content="noindex, nofollow, nosnippet" />
-    <base href="/" />
-    <link rel="shortcut icon" content="favicon.ico" />
+    <title>404 Error - Page Not Found</title>
+    <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="proxy.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <div class="logo-wrapper left-margin">
-      <h1 style="text-align: center;">404 (Or UV Error)</h1>
-    </div>
-    <div class="desc left-margin">
-      <p style="text-align: center;">Page not found / The server could not route your request :(</p>
+    <header>
+      <div class="logo-wrapper left-margin">
+        <h1 class="desc">404 (Or UV Error)</h1>
+      </div>
+    </header>
+    <h3>The server could not route your request/Page not found</h3>
+    <p>If you get a "Baremux not defined" error, simply reload.</p>
+    <main class="desc">
       <p id="uv-error"></p>
       <code id="uv-error-code"></code>
-      <button id="uv-register-sw" value="Register service worker">
-        Register ServiceWorker
-      </button>
-    </div>
-    <script src="bareTransport.js"></script>
-    <script src="uv/uv.bundle.js"></script>
-    <script src="uv/uv.config.js"></script>
-    <script src="register-sw.js"></script>
-    <script src="error.js"></script>
+      <button id="uv-register-sw">Register Service Worker</button>
+    </main>
+    <footer>
+      <script src="bareTransport.js"></script>
+      <script src="uv/uv.bundle.js"></script>
+      <script src="uv/uv.config.js"></script>
+      <script src="register-sw.js"></script>
+      <script src="error.js"></script>
+    </footer>
   </body>
 </html>
