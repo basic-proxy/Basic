@@ -5,36 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic - Apps</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="proxy.css">
-    <script src="baremux/bare.js"></script>
-    <script src="bareTransport.js"></script>
-    <script src="uv/uv.bundle.js" defer></script>
-    <script src="uv/uv.config.js" defer></script>
-    <script src="register-sw.js" defer></script>
-    <script src="search.js" defer></script>
-    <script src="index.js" defer></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const buttons = document.querySelectorAll("#app-button");
-            const form = document.getElementById("uv-form");
-            const addressInput = document.getElementById("uv-address");
-
-            buttons.forEach((button) => {
-                button.addEventListener("click", () => {
-                    const predefinedLink = button.getAttribute("data-link");
-                    addressInput.value = predefinedLink;
-
-                    form.dispatchEvent(
-                        new CustomEvent("submit", {
-                            bubbles: true,
-                            cancelable: true,
-                            detail: { source: "app-button" },
-                        })
-                    );
-                });
-            });
-        });
-    </script>
 </head>
 <body>
     <div class="back-button-container">
@@ -48,36 +18,36 @@
     </div>
 
     <h1>Apps</h1>
-
-    <form id="uv-form" class="flex-center" style="display: none;">
-        <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />
-        <input id="uv-address" type="text" placeholder="Enter a search query..." />
-    </form>
     
     <div class="button-container">
-        <button style="height:100px" id="app-button" class="rgb-button" type="button" data-link="https://discord.com/login">
-            <img style="padding-top:10px" alt="discord" src="images/apps/discord.png" alt="Discord" width="24px" height="24px">
+        <button style="height:100px" class="rgb-button app-button" type="button" data-link="/loader.html?name=Discord&link=https://discord.com/login&type=app">
+            <img style="padding-top:10px" alt="discord" src="images/apps/discord.png" width="24px" height="24px">
             <p>Discord</p>
         </button>
-        <button style="height:100px" id="#app-button" class="rgb-button" type="button" data-link="https://chat.openai.com">
+        <button style="height:100px" class="rgb-button app-button" type="button" data-link="/loader.html?name=ChatGPT&link=https://chat.openai.com&type=app">
             <img style="padding-top:10px" src="images/apps/gpt.png" alt="ChatGPT" width="24px" height="24px">
-            <p>ChatGPT (Broken)</p>
+            <p>ChatGPT</p>
         </button>
-        <button style="height:100px" id="app-button" class="rgb-button" type="button" data-link="https://www.coolmathgames.com">
+        <button style="height:100px" class="rgb-button app-button" type="button" data-link="/loader.html?name=Cool Math Games&link=https://www.coolmathgames.com&type=app">
             <img style="padding-top:10px" src="images/apps/coolmathgames.png" alt="Cool Math Games" width="24px" height="24px">
             <p>Cool Math Games</p>
         </button>
-        <button style="height:100px" id="app-button" class="rgb-button" type="button" data-link="https://www.twitch.tv">
+        <button style="height:100px" class="rgb-button app-button" type="button" data-link="/loader.html?name=Twitch&link=https://www.twitch.tv&type=app">
             <img style="padding-top:10px" src="images/apps/twitch.png" alt="Twitch" width="24px" height="24px">
             <p>Twitch</p>
         </button>
-        <button style="height:100px" id="app-button" class="rgb-button" type="button" data-link="https://www.nvidia.com/en-us/geforce-now/">
+        <button style="height:100px" class="rgb-button app-button" type="button" data-link="/loader.html?name=GForceNow&link=https://www.nvidia.com/en-us/geforce-now/&type=app">
             <img style="padding-top:10px" src="images/apps/gforcenow.png" alt="GForceNow" width="24px" height="24px">
             <p>GForceNow</p>
         </button>
     </div>
-    <div class="desc left-margin">
-        <p id="uv-error"></p>
-    <pre id="uv-error-code"></pre>
+
+    <script>
+        document.querySelectorAll('.app-button').forEach(button => {
+            button.addEventListener('click', () => {
+                window.location.href = button.getAttribute('data-link');
+            });
+        });
+    </script>
 </body>
 </html>

@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic - Game Loader</title>
+    <title>Basic - Loader</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="proxy.css">
+    <script src="baremux/bare.js"></script>
+    <script src="bareTransport.js"></script>
+    <script src="uv/uv.bundle.js" defer></script>
+    <script src="uv/uv.config.js" defer></script>
+    <script src="register-sw.js" defer></script>
+    <script src="search.js" defer></script>
+    <script src="index.js" defer></script>
     <script src="loader.js"></script>
 </head>
 <body>
     <div class="back-button-container">
-        <a href="games.html">
+        <a href="games.html" id="back-link">
             <button class="rgb-button">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
                     <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/>
@@ -18,9 +26,14 @@
         </a>
     </div>
 
-    <h1 id="title">Basic Game Loader</h1>
+    <form id="uv-form" class="flex-center" style="display: none;">
+        <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />
+        <input id="uv-address" type="text" placeholder="Enter a search query..." />
+    </form>
+
+    <h1 id="title">Basic Loader</h1>
     <div class="iframe-container" style="text-align: center; margin-top: 20px;">
-        <iframe id="game-frame" src="games.html" style="width: 80%; height: 80vh; border: none;"></iframe>
+        <iframe id="main-frame" src="games.html" style="width: 80%; height: 80vh; border: none;"></iframe>
     </div>
 </body>
 </html>
