@@ -36,12 +36,6 @@ const games = [
         gameLink: "loader.html?name=Duck Life 3&link=/games/ducklife3/index.html"
     },
     {
-        imgSrc: "/images/games/duck-life-4.webp",
-        name: "Duck Life 4",
-        tags: "Simulation, Adventure, Racing, Sports",
-        gameLink: "loader.html?name=Duck Life 4&link=/games/ducklife4/index.html"
-    },
-    {
         imgSrc: "/images/games/awesome-tanks-2.webp",
         name: "Awesome Tanks 2",
         tags: "Action, Strategy, Multiplayer, Shooting",
