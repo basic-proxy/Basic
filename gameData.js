@@ -156,12 +156,6 @@ const games = [
         gameLink: "loader.html?name=World's Hardest Game 2&link=/games/worlds-hardest-game-2/index.html"
     },
     {
-        imgSrc: "/images/games/madalin-stunt-cars-2.webp",
-        name: "Madalin Stunt Cars 2",
-        tags: "Driving, Racing, Multiplayer, Sports",
-        gameLink: "loader.html?name=Madalin Stunt Cars 2&link=/games/madalin-stunt-cars-2/index.html"
-    },
-    {
         imgSrc: "/images/games/madalin-stunt-cars-3.webp",
         name: "Madalin Stunt Cars 3",
         tags: "Driving, Racing, Multiplayer, Sports",
