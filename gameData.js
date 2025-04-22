@@ -96,6 +96,12 @@ const games = [
         gameLink: "loader.html?name=Riddle School 4&link=/games/riddleschool4/index.html"
     },
     {
+        imgSrc: "/images/games/riddle-school-5.webp",
+        name: "Riddle School 5",
+        tags: "Puzzle, Adventure, Point-and-Click, Escape",
+        gameLink: "loader.html?name=Riddle School 5&link=/games/riddleschool5/index.html"
+    },
+    {
         imgSrc: "/images/games/learn-to-fly.webp",
         name: "Learn to Fly",
         tags: "Simulation, Adventure, Flying, Sports",
@@ -150,22 +156,16 @@ const games = [
         gameLink: "loader.html?name=World's Hardest Game 2&link=/games/worlds-hardest-game-2/index.html"
     },
     {
-        imgSrc: "/images/games/shell-shockers.webp",
-        name: "Shell Shockers",
-        tags: "Action, Shooter, Multiplayer, Shooting",
-        gameLink: "loader.html?name=Shell Shockers&link=/games/shell-shockers/index.html"
-    },
-    {
         imgSrc: "/images/games/madalin-stunt-cars-2.webp",
         name: "Madalin Stunt Cars 2",
         tags: "Driving, Racing, Multiplayer, Sports",
         gameLink: "loader.html?name=Madalin Stunt Cars 2&link=/games/madalin-stunt-cars-2/index.html"
     },
     {
-        imgSrc: "/images/games/basketball-stars.webp",
-        name: "Basketball Stars",
-        tags: "Sports, Multiplayer, Action",
-        gameLink: "loader.html?name=Basketball Stars&link=/games/basketball-stars/index.html"
+        imgSrc: "/images/games/madalin-stunt-cars-3.webp",
+        name: "Madalin Stunt Cars 3",
+        tags: "Driving, Racing, Multiplayer, Sports",
+        gameLink: "loader.html?name=Madalin Stunt Cars 3&link=/games/madalin-stunt-cars-3/index.html"
     },
     {
         imgSrc: "/images/games/moto-x3m.webp",
@@ -252,18 +252,6 @@ const games = [
         gameLink: "loader.html?name=2048&link=/games/2048/index.html"
     },
     {
-        imgSrc: "/images/games/ages-of-conflict.webp",
-        name: "Ages of Conflict",
-        tags: "Strategy, Simulation",
-        gameLink: "loader.html?name=Ages of Conflict&link=/games/ages-of-conflict/index.html"
-    },
-    {
-        imgSrc: "/images/games/aqua-park.webp",
-        name: "Aqua Park",
-        tags: "Racing, Water, Multiplayer, Sports",
-        gameLink: "loader.html?name=Aqua Park&link=/games/aqua-park/index.html"
-    },
-    {
         imgSrc: "/images/games/boxing-random.webp",
         name: "Boxing Random",
         tags: "Sports, Action, Multiplayer, Stickman",
@@ -273,7 +261,7 @@ const games = [
         imgSrc: "/images/games/fireboy-watergirl-forest-temple.webp",
         name: "Fireboy and Watergirl: Forest Temple",
         tags: "Puzzle, Adventure, Co-op, Platformer",
-        gameLink: "loader.html?name=Fireboy and Watergirl: Forest Temple&link=/games/fireboy-watergirl-forest-temple/index.html"
+        gameLink: "loader.html?name=Fireboy and Watergirl: Forest Temple&link=/games/fireboywatergirlforesttemple/index.html"
     },
     {
         imgSrc: "/images/games/drift-hunters.webp",
