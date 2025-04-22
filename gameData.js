@@ -222,12 +222,6 @@ const games = [
         gameLink: "loader.html?name=Rooftop Snipers&link=/games/rooftop-snipers/index.html"
     },
     {
-        imgSrc: "/images/games/soccer-random.webp",
-        name: "Soccer Random",
-        tags: "Sports, Multiplayer, Action, Stickman",
-        gameLink: "loader.html?name=Soccer Random&link=/games/soccer-random/index.html"
-    },
-    {
         imgSrc: "/images/games/10-minutes-till-dawn.webp",
         name: "10 Minutes Till Dawn",
         tags: "Action, Survival, Shooter, Shooting, Horror",
