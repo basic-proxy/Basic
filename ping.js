@@ -17,17 +17,17 @@ const startTime = performance.now();
         return Math.round(end - start);
     }
 
-
-    
     async function runPingTest() {
         const url = 'https://bare.intrarmour.com/';
         const ping = await measurePing(url);
 
         const pingDisplay = document.getElementById('ping');
-        if (ping >= 0) {
+        if (ping == "null") {
             pingDisplay.textContent = `${ping} ms`;
+        } else if (ping >= 0) {
+            pingDisplay.textContent = 'Server not reachable';
         } else {
-            pingDisplay.textContent = 'Error. Are you offline? Is the server blocked?';
+            pingDisplay.textContent = 'Server not reachable';
         }
     }
 
