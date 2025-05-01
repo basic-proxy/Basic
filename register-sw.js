@@ -27,5 +27,5 @@ async function registerSW() {
   await navigator.serviceWorker.register(stockSW);
 
   // Register the EpoxyClient transport to be used for network requests
-  await BareMux.SetTransport("BareMod.BareClient", "https://bare.intrarmour.com/");
+  await BareMux.SetTransport("BareMod.BareClient", "https://api.psgl.cl/");
 }
